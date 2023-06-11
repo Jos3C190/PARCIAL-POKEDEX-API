@@ -4,9 +4,16 @@ body {
     justify-content: space-between;
     height: 100vh;
     margin: 0;
+    background: linear-gradient(90deg, #fbc2eb 0%, #a6c1ee 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .container {
     width: 100%;
     max-width: 100%;
+}
+
+.logo-pokemon {
+    max-width: 200px;
 }
