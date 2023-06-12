@@ -18,7 +18,12 @@ async function buscarPokemon() {
 
 
 async function getPokemon(nombrePokemon) {
-    
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${nombrePokemon}`);
+    if (!response.ok) {
+      throw new Error();
+    }
+    const pokemon = await response.json();
+    return pokemon;
 }
   
 
