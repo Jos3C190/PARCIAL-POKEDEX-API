@@ -1,5 +1,5 @@
 async function buscarPokemon() {
-    const nombrePokemon = document.getElementById('nombrePokemon').value;
+    const nombrePokemon = document.getElementById('nombrePokemon').value.toLowerCase();
     document.getElementById('resultado').innerHTML = '';
   
     try {
