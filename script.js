@@ -46,5 +46,35 @@ async function getAllPokemons() {
   
 
 function mostrarPokemon(pokemon) {
-    
+    const { name, id, types, weight, sprites } = pokemon;
+  
+    const card = document.createElement('div');
+    card.classList.add('col-sm-12', 'col-md-6', 'col-lg-4', 'col-xl-3', 'mb-4');
+  
+    const cardBody = document.createElement('div');
+    cardBody.classList.add('card', 'h-100', 'text-center', 'p-3');
+  
+    const nombre = document.createElement('h2');
+    nombre.innerText = name;
+    nombre.classList.add('card-title');
+  
+    const idElement = document.createElement('p');
+    idElement.innerText = `ID: ${id}`;
+    idElement.classList.add('card-text');
+  
+    const tipos = document.createElement('p');
+    tipos.innerText = `Tipo(s): ${types.map(tipo => tipo.type.name).join(', ')}`;
+    tipos.classList.add('card-text');
+  
+    const peso = document.createElement('p');
+    peso.innerText = `Peso: ${weight}`;
+    peso.classList.add('card-text');
+  
+    const imagen = document.createElement('img');
+    imagen.src = sprites.front_default;
+    imagen.classList.add('card-img-top', 'mb-3');
+  
+    cardBody.append(nombre, imagen, idElement, tipos, peso);
+    card.appendChild(cardBody);
+    document.getElementById('resultado').appendChild(card);
 }
