@@ -28,7 +28,20 @@ async function getPokemon(nombrePokemon) {
   
 
 async function getAllPokemons() {
-    
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=60`);
+    if (!response.ok) {
+      throw new Error();
+    }
+    const data = await response.json();
+    const pokemonPromises = data.results.map(async (item) => {
+      const res = await fetch(item.url);
+      if (!res.ok) {
+        throw new Error();
+      }
+      return res.json();
+    });
+    const pokemons = await Promise.all(pokemonPromises);
+    return pokemons;
 }
   
 
